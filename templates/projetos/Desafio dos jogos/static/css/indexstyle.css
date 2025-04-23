@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Courier News';
+    src: url('../assets/cour.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Courier News', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: aliceblue;
+    margin-bottom: 100px;
+}
+
+.button-container {
+    display: flex;
+    gap: 30px;
+}
+
+button {
+    font-size: 20px;
+    background-color: #262626;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 60px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #616161;
+}

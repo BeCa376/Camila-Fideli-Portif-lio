@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Courier News';
+    src: url('../assets/cour.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Courier News', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+    align-items: center;
+    color:aliceblue;
+}
+
+.memory-game {
+    margin-top: 6vh;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 20px;
+    justify-content: center;
+}
+
+.btback img {
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.btback {
+    align-items: top;
+    padding-top: 5px;
+    margin-left: 10px;
+    color:aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: url(/static/assets/icon-back.png);
+    transition: 0.3s;
+  }
+
+.btback:hover{
+    filter: drop-shadow(0 0 5px #ffffff66)
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+}
+
+.front {
+    background-color: aliceblue;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+input:checked + .card .front {
+    transform: rotateY(180deg);
+}
+
+input:checked + .card .back {
+    transform: rotateY(0deg);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+  }
+  
+  .popup-content {
+    background-color: aliceblue;
+    color: black;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    cursor: default;
+  }
+  
+  #card1:checked
+    ~ #card2:checked
+    ~ #card3:checked
+    ~ #card4:checked
+    ~ #card5:checked
+    ~ #card6:checked
+    ~ #card7:checked
+    ~ #card8:checked
+    ~ #card9:checked
+    ~ #card10:checked
+    ~ #card11:checked
+    ~ #card12:checked
+    ~ #card13:checked
+    ~ #card14:checked
+    ~ #card15:checked
+    ~ #card16:checked
+    ~ #popup-control:not(:checked)
+    ~ label.popup {
+      display: flex;
+  }
+  
+#popup-control:not(:checked) ~ label.popup {
+    display: none;
+}

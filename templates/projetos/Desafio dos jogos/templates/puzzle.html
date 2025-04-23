@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/puzzlestyle.css">
+    <title>Quebra-cabeça</title>
+</head>
+<div class="btback">
+  <a href="index.html">
+      <img src="../static/assets/icon-back.png" alt="Voltar">
+  </a>
+</div>
+<body>
+    <h1>Quebra-cabeça:</h1>
+    <div class="puzzle">
+        <img src="../static/assets/qc-1_1.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-3_0.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-0_3.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-2_1.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-0_0.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-2_2.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-1_3.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-3_3.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-0_2.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-3_1.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-1_0.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-2_3.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-2_0.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-1_2.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-3_2.png" class="piece" draggable="false">
+        <img src="../static/assets/qc-0_1.png" class="piece" draggable="false">
+      </div>
+     <script>
+        const pieces = document.querySelectorAll('.piece');
+        let selected = [];
+    
+        pieces.forEach(piece => {
+          piece.addEventListener('click', () => {
+            if (!selected.includes(piece)) {
+              selected.push(piece);
+              piece.classList.add('selected');
+            }
+    
+            if (selected.length === 2) {
+              const tempSrc = selected[0].src;
+              selected[0].src = selected[1].src;
+              selected[1].src = tempSrc;
+    
+              selected.forEach(img => img.classList.remove('selected'));
+              selected = [];
+            }
+          });
+        });
+      </script>
+      <input type="checkbox" id="popup-control" hidden>
+      <label for="popup-control" class="popup">
+          <div class="popup-content" onclick="event.stopPropagation()">
+            <h2>Parabéns!</h2>
+            <p>Você completou o jogo!</p>
+          </div>
+      </label>
+</body>
+</html>
